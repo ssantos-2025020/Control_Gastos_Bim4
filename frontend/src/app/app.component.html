@@ -1,37 +1,113 @@
 @if (!mensajeExito()) {
   <div class="login-page">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+
+    <!-- Estrellas y fugaces en el lado derecho -->
+    <div class="starfield">
+      <svg width="0" height="0" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="trail-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#ffffff" />
+            <stop offset="0.4" stop-color="rgba(190, 220, 255, 0.55)" />
+            <stop offset="1" stop-color="rgba(160, 210, 255, 0)" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="star"></span>
+      <span class="shooting-star">
+        <svg class="shooting-trail" viewBox="0 0 160 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M160 14 C 120 0, 80 18, 40 12 Q 15 9, 0 11" fill="none" stroke="url(#trail-grad)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="shooting-star">
+        <svg class="shooting-trail" viewBox="0 0 160 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M160 14 C 120 0, 80 18, 40 12 Q 15 9, 0 11" fill="none" stroke="url(#trail-grad)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="shooting-star">
+        <svg class="shooting-trail" viewBox="0 0 160 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M160 14 C 120 0, 80 18, 40 12 Q 15 9, 0 11" fill="none" stroke="url(#trail-grad)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="shooting-star">
+        <svg class="shooting-trail" viewBox="0 0 160 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M160 14 C 120 0, 80 18, 40 12 Q 15 9, 0 11" fill="none" stroke="url(#trail-grad)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+    </div>
+
     <!-- Panel de marca (lateral) -->
     <section class="login-aside">
       <div class="aside-content">
         <div class="aside-brand">
           <img src="assets/logo.png" alt="Logo" class="aside-logo" />
+          <div class="brand-text">
+            <span class="brand-name">Control de Gastos</span>
+            <span class="brand-tagline">Gestión financiera personal</span>
+          </div>
         </div>
 
         <div class="aside-headline">
           <h2>Decisiones financieras claras, todos los días.</h2>
-          <p>Registra, organiza y analiza tus gastos por categorías en un solo lugar.</p>
+          <p>
+            Registra, organiza y analiza tus gastos por categorías en un solo lugar.
+          </p>
         </div>
 
         <ul class="aside-features">
           <li>
-            <span class="feat-icon">📊</span>
+            <span class="feat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </span>
             <div>
               <strong>Estadísticas en tiempo real</strong>
               <small>Total gastado y desglose por categoría al instante.</small>
             </div>
           </li>
           <li>
-            <span class="feat-icon">🔎</span>
+            <span class="feat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </span>
             <div>
               <strong>Búsqueda y filtros</strong>
               <small>Localiza cualquier movimiento por texto o rango de fechas.</small>
             </div>
           </li>
           <li>
-            <span class="feat-icon">🛡️</span>
+            <span class="feat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </span>
             <div>
               <strong>Acceso seguro</strong>
-              <small>Autenticación con roles de administrador.</small>
+              <small>Autenticación con JWT y roles de administrador.</small>
             </div>
           </li>
         </ul>
@@ -43,7 +119,8 @@
 
     <!-- Panel del formulario -->
     <section class="login-panel">
-      <div class="login-panel-inner">
+      <div class="orbit" aria-hidden="true"></div>
+      <div class="login-panel-inner" (mousemove)="cardTilt($event)" (mouseleave)="cardReset()">
         <div class="panel-logo">
           <img src="assets/logo.png" alt="Logo" />
         </div>
@@ -53,16 +130,39 @@
           <p>Bienvenido de nuevo, ingresa tus credenciales.</p>
         </div>
 
+        @if (verificando()) {
+          <div class="session-check">
+            <span class="spinner"></span>
+            Verificando tu sesión...
+          </div>
+        }
+
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form" novalidate>
           <div class="field" [class.field-error]="emailInvalido">
             <label for="email">Correo electrónico</label>
-            <input
-              id="email"
-              type="email"
-              formControlName="email"
-              placeholder="admin@controlgastos.com"
-              autocomplete="username"
-            />
+            <div class="input-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                placeholder="admin@controlgastos.com"
+                autocomplete="username"
+                autocapitalize="none"
+                spellcheck="false"
+                autofocus
+              />
+            </div>
+            @if (emailValido) {
+              <span class="field-valid">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            }
             @if (emailInvalido) {
               <span class="error-text">Ingresa un correo electrónico válido.</span>
             }
@@ -71,12 +171,18 @@
           <div class="field" [class.field-error]="passwordInvalido">
             <label for="password">Contraseña</label>
             <div class="password-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
               <input
                 id="password"
                 [type]="mostrarPassword() ? 'text' : 'password'"
                 formControlName="password"
                 placeholder="••••••••"
                 autocomplete="current-password"
+                (keydown)="detectarCapsLock($event)"
+                (keyup)="detectarCapsLock($event)"
               />
               <button
                 type="button"
@@ -100,20 +206,44 @@
                 }
               </button>
             </div>
+            @if (capsLockActivo()) {
+              <span class="caps-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3v12" />
+                  <path d="m8 11 4 4 4-4" />
+                  <path d="M4 20h16" />
+                </svg>
+                Bloq Mayús está activado
+              </span>
+            }
             @if (passwordInvalido) {
               <span class="error-text">La contraseña es obligatoria.</span>
             }
           </div>
 
+          <div class="form-meta">
+            <span class="secure-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Conexión segura · Tus datos están cifrados
+            </span>
+          </div>
+
           @if (errorMensaje()) {
-            <div class="alert-error">{{ errorMensaje() }}</div>
+            <div class="alert-error" role="alert">{{ errorMensaje() }}</div>
           }
 
           <button type="submit" class="btn-submit" [disabled]="cargando()">
+            <span class="btn-shine"></span>
             @if (cargando()) {
               <span class="spinner"></span> Ingresando...
             } @else {
               Iniciar sesión
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
             }
           </button>
         </form>
@@ -127,6 +257,34 @@
       <img src="assets/logo.png" alt="Logo" class="success-logo" />
       <h2>{{ mensajeExito() }}</h2>
       <button type="button" class="btn-logout" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+}
+
+<!-- Aviso de cierre inminente con opción de extender la sesión -->
+@if (authService.avisoExpiracion(); as aviso) {
+  <div class="session-warning" role="alertdialog" aria-live="assertive">
+    <div class="session-warning-icon">⏳</div>
+    <div class="session-warning-body">
+      <strong>¿Quieres extender tu sesión?</strong>
+      <p>Se cerrará en <b>{{ aviso.segundos }}</b> segundos si no respondes.</p>
+    </div>
+    <div class="session-warning-actions">
+      <button
+        type="button"
+        class="session-warning-btn session-warning-btn-primary"
+        (click)="extender()"
+        [disabled]="extendiendo()"
+      >
+        @if (extendiendo()) {
+          <span class="spinner-sm"></span>
+        } @else {
+          Sí, extender
+        }
+      </button>
+      <button type="button" class="session-warning-btn" (click)="noExtender()">
+        No
+      </button>
     </div>
   </div>
 }

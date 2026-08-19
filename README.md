@@ -1,6 +1,6 @@
 # Control de Gastos — Login
 
-Aplicación web con **backend** (Express + TypeScript) y **frontend** (Angular 18) para iniciar sesión como administrador. Por ahora funciona sin base de datos: el backend valida las credenciales de administrador de forma local.
+Aplicación web con **backend** (Express + TypeScript) y **frontend** (Angular 18) para iniciar sesión como administrador. Las credenciales se validan contra **PostgreSQL** (tabla `usuarios`) usando el driver `pg` y contraseñas encriptadas con bcrypt.
 
 ## Credenciales
 
@@ -10,8 +10,8 @@ Aplicación web con **backend** (Express + TypeScript) y **frontend** (Angular 1
 ## Estructura
 
 ```
-backend/   Express + TypeScript (puerto 3100)
-frontend/  Angular 18 (puerto 4300)
+backend/   Express + TypeScript + PostgreSQL (puerto 3100)
+frontend/  Angular 18 (puerto 4200)
 ```
 
 ## Ejecución
@@ -22,10 +22,24 @@ cd backend
 pnpm install
 pnpm dev
 
-# Frontend (puerto 4300)
+# Frontend (puerto 4200)
 cd frontend
 pnpm install
 pnpm start
 ```
 
-Al iniciar sesión con las credenciales correctas se muestra el mensaje **"Has iniciado sesión correctamente como administrador"** y un botón **Cerrar sesión**.
+## Configuración (backend/.env)
+
+El backend requiere las siguientes variables en `backend/.env`:
+
+```
+PORT=3100
+DATABASE_URL="postgresql://postgres:admin@localhost:5432/control_gastos?schema=public"
+JWT_SECRET="..."
+JWT_EXPIRES_IN="3h"
+ADMIN_EMAIL="admin@controlgastos.com"
+ADMIN_PASSWORD="Admin123!"
+ADMIN_NOMBRE="Administrador"
+```
+
+La sesión expira según `JWT_EXPIRES_IN`. Antes de que caduque, el frontend muestra un aviso para extenderla; si no se responde, cierra la sesión automáticamente.
