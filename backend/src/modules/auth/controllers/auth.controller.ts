@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { authService, InvalidCredentialsError } from '../services/auth.service';
 import { LoginDTO } from '../models/auth.model';
+import { AuthenticatedRequest } from '../middlewares/auth.middleware';
 
 class AuthController {
   public login(req: Request, res: Response): void {
@@ -23,6 +24,11 @@ class AuthController {
       console.error('[AuthController] Error en login:', error);
       res.status(500).json({ success: false, message: 'Error interno del servidor.' });
     }
+  }
+
+  public me(req: AuthenticatedRequest, res: Response): void {
+    const email = req.user?.email ?? '';
+    res.status(200).json(authService.me(email));
   }
 }
 
