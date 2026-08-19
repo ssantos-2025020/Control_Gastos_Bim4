@@ -6,7 +6,8 @@ class DatabaseService {
 
   private constructor() {
     this.pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString:
+        process.env.DATABASE_URL ?? 'postgresql://postgres:admin@localhost:5432/control_gastos',
       max: 10,
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 5000,
