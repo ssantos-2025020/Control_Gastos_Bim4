@@ -1,4 +1,6 @@
-import { LoginDTO, LoginResponseDTO } from '../models/auth.model';
+import jwt from 'jsonwebtoken';
+import { LoginDTO, LoginResponseDTO, JwtPayloadDTO, MeResponseDTO } from '../models/auth.model';
+import { JWT_SECRET, JWT_SIGN_OPTIONS } from '../../../config/jwt';
 
 const ADMIN_EMAIL = 'admin@controlgastos.com';
 const ADMIN_PASSWORD = 'Admin123!';
@@ -20,9 +22,21 @@ class AuthService {
       throw new InvalidCredentialsError();
     }
 
+    const payload: JwtPayloadDTO = { email: ADMIN_EMAIL, role: 'administrador' };
+    const token = jwt.sign(payload, JWT_SECRET, JWT_SIGN_OPTIONS);
+
     return {
       success: true,
       message: 'Has iniciado sesión correctamente como administrador',
+      role: 'administrador',
+      token,
+    };
+  }
+
+  public me(email: string): MeResponseDTO {
+    return {
+      success: true,
+      email,
       role: 'administrador',
     };
   }

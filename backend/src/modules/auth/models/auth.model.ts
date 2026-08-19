@@ -13,4 +13,16 @@ export interface LoginResponseDTO {
   success: boolean;
   message: string;
   role: string;
+  token: string;
+}
+
+export interface JwtPayloadDTO {
+  email: string;
+  role: string;
+}
+
+export interface MeResponseDTO {
+  success: boolean;
+  email: string;
+  role: string;
 }
