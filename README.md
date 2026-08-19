@@ -36,7 +36,7 @@ El backend requiere las siguientes variables en `backend/.env`:
 PORT=3100
 DATABASE_URL="postgresql://postgres:admin@localhost:5432/control_gastos?schema=public"
 JWT_SECRET="..."
-JWT_EXPIRES_IN="20s"
+JWT_EXPIRES_IN="3h"
 ADMIN_EMAIL="admin@controlgastos.com"
 ADMIN_PASSWORD="Admin123!"
 ADMIN_NOMBRE="Administrador"

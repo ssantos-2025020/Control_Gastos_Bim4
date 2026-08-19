@@ -30,7 +30,7 @@ const TOKEN_KEY = 'auth_token';
 const USUARIO_KEY = 'auth_usuario';
 
 /** Segundos antes de la expiración en que se muestra el aviso de cierre de sesión. */
-export const AVISO_SEGUNDOS = 5;
+export const AVISO_SEGUNDOS = 60;
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
